@@ -1,0 +1,36 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Generated ingestion artifacts
+artifacts/raw/*
+artifacts/processed/*
+!artifacts/.gitkeep
+!artifacts/raw/.gitkeep
+!artifacts/processed/.gitkeep
+!artifacts/samples/
+!artifacts/samples/**
+
+# Snowflake and local tool state
+.snowflake/
+.streamlit/secrets.toml
+.cortex/
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/

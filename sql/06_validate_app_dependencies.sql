@@ -1,0 +1,50 @@
+-- Step 06: Validate the data, search service, and AI_COMPLETE access.
+
+USE DATABASE BREAST_CANCER_SEARCH;
+USE SCHEMA RAG;
+
+SELECT 'RAW_DOCUMENTS' AS CHECK_NAME, COUNT(*) AS ROW_COUNT
+FROM BREAST_CANCER_SEARCH.RAG.RAW_DOCUMENTS;
+
+SELECT 'DOCUMENT_CHUNKS' AS CHECK_NAME, COUNT(*) AS ROW_COUNT
+FROM BREAST_CANCER_SEARCH.RAG.DOCUMENT_CHUNKS;
+
+SHOW CORTEX SEARCH SERVICES LIKE 'BREAST_CANCER_CORTEX_SEARCH'
+  IN SCHEMA BREAST_CANCER_SEARCH.RAG;
+
+SELECT
+  SOURCE_NAME,
+  DOCUMENT_TYPE,
+  COUNT(*) AS CHUNKS
+FROM BREAST_CANCER_SEARCH.RAG.DOCUMENT_CHUNKS
+GROUP BY SOURCE_NAME, DOCUMENT_TYPE
+ORDER BY CHUNKS DESC;
+
+SELECT PARSE_JSON(
+  SNOWFLAKE.CORTEX.SEARCH_PREVIEW(
+    'BREAST_CANCER_SEARCH.RAG.BREAST_CANCER_CORTEX_SEARCH',
+    '{
+      "query": "triple negative breast cancer immunotherapy",
+      "columns": [
+        "TITLE",
+        "SOURCE_NAME",
+        "SOURCE_URL",
+        "DOCUMENT_TYPE",
+        "TOPIC",
+        "PMID",
+        "NCT_ID",
+        "TRIAL_STATUS",
+        "CONTENT"
+      ],
+      "limit": 5
+    }'
+  )
+)['results'] AS SAMPLE_RESULTS;
+
+SELECT SNOWFLAKE.CORTEX.AI_COMPLETE(
+  model => 'claude-3-5-sonnet',
+  prompt => 'Return exactly this phrase: Cortex app dependency check.',
+  model_parameters => OBJECT_CONSTRUCT('temperature', 0, 'max_tokens', 20),
+  show_details => TRUE
+) AS AI_COMPLETE_CHECK;
+

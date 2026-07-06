@@ -1,0 +1,93 @@
+{
+  "html_sources": [
+    {
+      "source_name": "NCI Breast Cancer Health Professional",
+      "source_tier": 1,
+      "document_type": "clinical_guidance",
+      "audience": "clinician",
+      "topic": "overview",
+      "jurisdiction": "US",
+      "url": "https://www.cancer.gov/types/breast/hp"
+    },
+    {
+      "source_name": "NCI Breast Cancer Treatment PDQ",
+      "source_tier": 1,
+      "document_type": "clinical_guidance",
+      "audience": "clinician",
+      "topic": "treatment",
+      "jurisdiction": "US",
+      "url": "https://www.cancer.gov/types/breast/hp/breast-treatment-pdq"
+    },
+    {
+      "source_name": "NCI Breast Cancer Screening PDQ",
+      "source_tier": 1,
+      "document_type": "clinical_guidance",
+      "audience": "clinician",
+      "topic": "screening",
+      "jurisdiction": "US",
+      "url": "https://www.cancer.gov/types/breast/hp/breast-screening-pdq"
+    },
+    {
+      "source_name": "NCI Breast Cancer Prevention PDQ",
+      "source_tier": 1,
+      "document_type": "clinical_guidance",
+      "audience": "clinician",
+      "topic": "prevention",
+      "jurisdiction": "US",
+      "url": "https://www.cancer.gov/types/breast/hp/breast-prevention-pdq"
+    },
+    {
+      "source_name": "NCI Genetics of Breast and Gynecologic Cancers PDQ",
+      "source_tier": 1,
+      "document_type": "clinical_guidance",
+      "audience": "clinician",
+      "topic": "genetics",
+      "jurisdiction": "US",
+      "url": "https://www.cancer.gov/types/breast/hp/breast-ovarian-genetics-pdq"
+    },
+    {
+      "source_name": "USPSTF Breast Cancer Screening Recommendation",
+      "source_tier": 1,
+      "document_type": "screening_recommendation",
+      "audience": "clinician",
+      "topic": "screening",
+      "jurisdiction": "US",
+      "url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening"
+    },
+    {
+      "source_name": "SEER Female Breast Cancer Stat Facts",
+      "source_tier": 1,
+      "document_type": "statistics",
+      "audience": "researcher",
+      "topic": "epidemiology",
+      "jurisdiction": "US",
+      "url": "https://seer.cancer.gov/statfacts/html/breast.html"
+    }
+  ],
+  "clinical_trials": {
+    "source_name": "ClinicalTrials.gov Breast Cancer Studies",
+    "source_tier": 1,
+    "document_type": "clinical_trial",
+    "audience": "clinician",
+    "topic": "clinical_trials",
+    "jurisdiction": "global",
+    "base_url": "https://clinicaltrials.gov/api/v2/studies",
+    "condition": "Breast Cancer",
+    "page_size": 100,
+    "max_pages": 3
+  },
+  "pubmed": {
+    "source_name": "PubMed Breast Cancer Research Abstracts",
+    "source_tier": 2,
+    "document_type": "research_abstract",
+    "audience": "researcher",
+    "topic": "research",
+    "jurisdiction": "global",
+    "base_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils",
+    "query": "(breast cancer[Title] OR breast neoplasm*[Title] OR triple-negative breast[Title] OR HER2-positive breast[Title] OR HER2-negative breast[Title]) AND (guideline[Publication Type] OR review[Publication Type] OR systematic review[Publication Type] OR clinical trial[Publication Type])",
+    "max_results": 200,
+    "batch_size": 100,
+    "sort": "pub+date",
+    "tool": "breast_cancer_cortex_search"
+  }
+}
