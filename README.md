@@ -15,11 +15,7 @@ normalization, validation, and JSONL artifact generation.
 
 ## 🎬 Demo
 
-> Demo GIF placeholder
-
-```md
-![Breast Cancer Cortex Search Demo](docs/assets/demo.gif)
-```
+![Breast Cancer Cortex Search demo](docs/breast-cancer-demo.gif)
 
 ------------------------------------------------------------------------
 
