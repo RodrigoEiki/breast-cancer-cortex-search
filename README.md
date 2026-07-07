@@ -25,11 +25,7 @@ normalization, validation, and JSONL artifact generation.
 
 ## 🏗️ Architecture
 
-> Architecture diagram placeholder
-
-```md
-![Architecture](docs/assets/architecture.png)
-```
+![Breast Cancer Cortex Search architecture](docs/architecture-diagram.png)
 
 ```text
 Medical Sources

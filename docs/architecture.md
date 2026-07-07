@@ -2,6 +2,8 @@
 
 This project is a production-oriented Snowflake RAG demo for breast cancer evidence search.
 
+![Breast Cancer Cortex Search architecture](architecture-diagram.png)
+
 ```text
 Medical Sources
         |
